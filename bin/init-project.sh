@@ -31,16 +31,16 @@ if [[ ! -d "$TEMPLATES_DIR" ]]; then
 fi
 
 REQUIRED_TEMPLATES=(
-  "project-CLAUDE.md"
-  "tasks-todo.md"
-  "tasks-lessons.md"
-  "code-reviewer.md"
-  "architecture-reviewer.md"
-  "commit-push.md"
-  "dev-handoff.md"
-  "setup-project.md"
-  "retro.md"
-  "docs-adr-template.md"
+  "CLAUDE.md"
+  "tasks/todo.md"
+  "tasks/lessons.md"
+  "agents/code-reviewer.md"
+  "agents/architecture-reviewer.md"
+  "commands/commit-push.md"
+  "commands/dev-handoff.md"
+  "commands/setup-project.md"
+  "commands/retro.md"
+  "docs/ADR-TEMPLATE.md"
 )
 
 MISSING=()
@@ -72,16 +72,16 @@ mkdir -p .claude/tasks .claude/agents .claude/commands
 mkdir -p docs/prds docs/stories docs/decisions docs/research docs/templates
 
 echo "  → copying templates"
-cp "$TEMPLATES_DIR/project-CLAUDE.md" CLAUDE.md
-cp "$TEMPLATES_DIR/tasks-todo.md" .claude/tasks/todo.md
-cp "$TEMPLATES_DIR/tasks-lessons.md" .claude/tasks/lessons.md
-cp "$TEMPLATES_DIR/code-reviewer.md" .claude/agents/code-reviewer.md
-cp "$TEMPLATES_DIR/architecture-reviewer.md" .claude/agents/architecture-reviewer.md
-cp "$TEMPLATES_DIR/commit-push.md" .claude/commands/commit-push.md
-cp "$TEMPLATES_DIR/dev-handoff.md" .claude/commands/dev-handoff.md
-cp "$TEMPLATES_DIR/setup-project.md" .claude/commands/setup-project.md
-cp "$TEMPLATES_DIR/retro.md" .claude/commands/retro.md
-cp "$TEMPLATES_DIR/docs-adr-template.md" docs/templates/ADR-TEMPLATE.md
+cp "$TEMPLATES_DIR/CLAUDE.md" CLAUDE.md
+cp "$TEMPLATES_DIR/tasks/todo.md" .claude/tasks/todo.md
+cp "$TEMPLATES_DIR/tasks/lessons.md" .claude/tasks/lessons.md
+cp "$TEMPLATES_DIR/agents/code-reviewer.md" .claude/agents/code-reviewer.md
+cp "$TEMPLATES_DIR/agents/architecture-reviewer.md" .claude/agents/architecture-reviewer.md
+cp "$TEMPLATES_DIR/commands/commit-push.md" .claude/commands/commit-push.md
+cp "$TEMPLATES_DIR/commands/dev-handoff.md" .claude/commands/dev-handoff.md
+cp "$TEMPLATES_DIR/commands/setup-project.md" .claude/commands/setup-project.md
+cp "$TEMPLATES_DIR/commands/retro.md" .claude/commands/retro.md
+cp "$TEMPLATES_DIR/docs/ADR-TEMPLATE.md" docs/templates/ADR-TEMPLATE.md
 
 echo "  → writing .gitignore"
 cat > .gitignore << 'GITIGNORE'

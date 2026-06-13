@@ -30,18 +30,13 @@ place() { # place <src> <dest>
 echo "Installing Claude Cofounder from: $REPO_DIR"
 [[ "$LINK" == true ]] && echo "  (symlink mode — git pull will update live)"
 
-# 1. Templates + presets
-echo "  → templates + presets → ~/.claude-templates/"
-mkdir -p ~/.claude-templates
+# 1. Templates (organized into agents/ commands/ tasks/ docs/ presets/)
+echo "  → templates → ~/.claude-templates/"
+rm -rf ~/.claude-templates
 if $LINK; then
-  rm -rf ~/.claude-templates
   ln -s "$REPO_DIR/templates" ~/.claude-templates
-  # presets live under templates dir for /setup-project; symlink separately if needed
-  mkdir -p ~/.claude-templates 2>/dev/null || true
 else
-  cp "$REPO_DIR"/templates/*.md ~/.claude-templates/
-  mkdir -p ~/.claude-templates/presets
-  cp "$REPO_DIR"/presets/*.md ~/.claude-templates/presets/
+  cp -R "$REPO_DIR/templates" ~/.claude-templates
 fi
 
 # 2. User-level skills

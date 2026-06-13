@@ -119,7 +119,7 @@ source ~/.bash_profile     # or ~/.zshrc if you use zsh
 ```
 
 **✓ CHECK 1:** `cat ~/.claude/CLAUDE.md | head -3` (or the baseline file) shows the global instructions.
-**✓ CHECK 2:** `ls ~/.claude-templates/` shows 10 template files + a `presets/` folder.
+**✓ CHECK 2:** `ls ~/.claude-templates/` shows the template folders: `agents/`, `commands/`, `tasks/`, `docs/`, `presets/`, and `CLAUDE.md`.
 **✓ CHECK 3:** `init-project.sh` (no arguments) prints the usage message.
 **✓ CHECK 4:** `echo $CLAUDE_CODE_AUTO_VERIFY` prints `1`.
 **✓ CHECK 5:** `cat ~/.claude/skills/test-driven-development/SKILL.md | head -2` shows the skill's frontmatter.
@@ -227,8 +227,8 @@ gh repo delete test-setup --yes
 │   ├── CLAUDE.md              ← global instructions (auto-loads everywhere)
 │   ├── skills/                ← user-level skills, e.g. test-driven-development (Step 6)
 │   └── plugins/               ← pm-skills plugins install here (Step 7)
-├── .claude-templates/         ← 10 template files for init-project.sh
-│   └── presets/               ← stack presets used by /setup-project
+├── .claude-templates/         ← templates for init-project.sh (agents/ commands/
+│                                 tasks/ docs/ presets/ + CLAUDE.md)
 ├── .bash_profile              ← contains PATH + CLAUDE_CODE_AUTO_VERIFY
 └── bin/
     └── init-project.sh        ← your project scaffolder

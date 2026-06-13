@@ -43,20 +43,21 @@ claude-cofounder/
 ├── install.sh                ← installs the system onto your machine
 ├── global/
 │   └── CLAUDE.md             ← baseline instructions + the SECURITY BASELINE (OWASP/GDPR-aware)
-├── templates/                ← scaffolded into every new project
-│   ├── project-CLAUDE.md     ← per-project config incl. a Security & Data section
-│   ├── setup-project.md      ← /setup-project onboarding interview
-│   ├── dev-handoff.md        ← /dev-handoff PM→Dev transition
-│   ├── commit-push.md        ← /commit-push with secret-scan + safety checks
-│   ├── retro.md              ← /retro end-of-session learning capture
-│   ├── code-reviewer.md      ← adversarial code-review subagent (incl. security)
-│   ├── architecture-reviewer.md
-│   ├── tasks-todo.md / tasks-lessons.md
-│   └── docs-adr-template.md  ← Architecture Decision Record template
+├── templates/                ← scaffolded into every new project (organized by type)
+│   ├── CLAUDE.md             ← per-project config incl. a Security & Data section
+│   ├── commands/             ← slash commands (you type /name)
+│   │   ├── setup-project.md  ← /setup-project onboarding interview
+│   │   ├── dev-handoff.md    ← /dev-handoff PM→Dev transition
+│   │   ├── commit-push.md    ← /commit-push with secret-scan + safety checks
+│   │   └── retro.md          ← /retro end-of-session learning capture
+│   ├── agents/               ← subagents (separate-context reviewers)
+│   │   ├── code-reviewer.md          ← adversarial review (incl. security)
+│   │   └── architecture-reviewer.md
+│   ├── tasks/                ← working files: todo.md, lessons.md
+│   ├── docs/                 ← document templates: ADR-TEMPLATE.md
+│   └── presets/              ← example filled stacks (e.g. angular-nest-mysql.md)
 ├── skills/
 │   └── test-driven-development/   ← user-level TDD skill (auto-applies to logic)
-├── presets/
-│   └── angular-nest-mysql.md ← example filled stack (start from it, or interview)
 └── bin/
     └── init-project.sh       ← scaffolds a new Claude-ready project
 
