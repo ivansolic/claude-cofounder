@@ -43,7 +43,7 @@ claude-cofounder/
 ├── install.sh                ← installs the system onto your machine
 ├── global/
 │   └── CLAUDE.md             ← baseline instructions + the SECURITY BASELINE (OWASP/GDPR-aware)
-├── templates/                ← scaffolded into every new project (organized by type)
+├── project-templates/        ← scaffolded into every new project (organized by type)
 │   ├── CLAUDE.md             ← per-project config incl. a Security & Data section
 │   ├── commands/             ← slash commands (you type /name)
 │   │   ├── setup-project.md  ← /setup-project onboarding interview

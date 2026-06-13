@@ -34,9 +34,9 @@ echo "Installing Claude Cofounder from: $REPO_DIR"
 echo "  → templates → ~/.claude-templates/"
 rm -rf ~/.claude-templates
 if $LINK; then
-  ln -s "$REPO_DIR/templates" ~/.claude-templates
+  ln -s "$REPO_DIR/project-templates" ~/.claude-templates
 else
-  cp -R "$REPO_DIR/templates" ~/.claude-templates
+  cp -R "$REPO_DIR/project-templates" ~/.claude-templates
 fi
 
 # 2. User-level skills
