@@ -30,18 +30,22 @@ Follow the on-screen instructions (it may ask for your Mac password and tell you
 
 ---
 
-## Step 2 — Install Node.js, Git, GitHub CLI, pnpm
+## Step 2 — Install Node.js, Git, GitHub CLI (and pnpm if JS/TS)
+
+`node`, `git`, `gh` are always required — Claude Code itself runs on Node.
+`pnpm` is only needed for JS/TS projects; skip it otherwise and install your
+language's tooling instead (you set the real commands later via `/setup-project`).
 
 ```bash
-brew install node git gh pnpm
+brew install node git gh      # always
+brew install pnpm             # only if your project is JS/TS
 ```
 
-**✓ CHECK:** all four show versions:
+**✓ CHECK:** the always-required three show versions:
 ```bash
 node --version    # should be v22+
 git --version
 gh --version
-pnpm --version
 ```
 
 ---

@@ -52,6 +52,12 @@ these — fill them in accurately._
 - **build:** [e.g. `pnpm build`]
 - **db (migrate / generate / studio):** [if applicable]
 
+## Architecture
+- **Pattern:** [Monolith / Modular monolith / Microservices / Serverless — chosen during `/setup-project`]
+- **Why:** [one line on the trade-off you accepted]
+- _Keep new work consistent with this. Revisit via the `architecture-reviewer`
+  subagent + an ADR when there's a real reason to change._
+
 ## Project Structure
 
 ```

@@ -43,6 +43,30 @@ able to answer. Offer examples. Accept "I don't know / none" gracefully.
 **D. Tooling:**
 - Package manager? Monorepo tool (or none)? Deployment target?
 
+**D2. Architecture** — let the user choose; present the options with trade-offs so
+they can decide. Do **not** pick for them, but if they're unsure, explain that
+most new/solo products start with a monolith or modular monolith.
+
+> "How should the software be structured? Here's what each gives you:
+>
+> - **Monolith** — one app, one codebase, one deploy. Simplest to build, run, and
+>   debug; fewest moving parts. Trade-off: everything scales together. Best for
+>   new products and small teams.
+> - **Modular monolith** — still one deploy, but with clear internal module
+>   boundaries. Keeps monolith simplicity while making a future split easier.
+>   Trade-off: a bit more upfront discipline.
+> - **Microservices** — multiple independently deployed services. Independent
+>   scaling and parallel teams. Trade-off: heavy operational cost — networking,
+>   multiple deploys, harder debugging across services. Usually premature for a
+>   solo/early product.
+> - **Serverless (functions + managed services)** — no servers to run; cheap at
+>   low traffic, fast to ship small pieces. Trade-off: cold starts, vendor
+>   lock-in, harder local dev and complex/long-running flows.
+>
+> Which fits? (If unsure, monolith or modular monolith is the safe start.)"
+
+Record the choice in the `## Architecture` section of CLAUDE.md.
+
 **E. Commands** (critical — the TDD skill and auto-verify loop use these):
 - How do you start the app (dev)? Run tests? Run backend tests separately? Lint?
   Typecheck? Build? Any DB commands (migrate/generate/studio)?
@@ -81,8 +105,8 @@ deletion # TODO: confirm"). Never write "no security needed" — if the project
 truly handles no personal data, record that explicitly and keep the checkpoints.
 
 ## 4. Fill in CLAUDE.md
-Replace every `[...]` placeholder in the Stack, Commands, Project Structure,
-Conventions, Security & Data, and Don't sections with the answers. For anything the user left
+Replace every `[...]` placeholder in the Stack, Architecture, Commands, Project
+Structure, Conventions, Security & Data, and Don't sections with the answers. For anything the user left
 open, put a sensible stack-appropriate default and mark it `# TODO: confirm`.
 
 Leave the Git Workflow and Product Documentation sections as they are (they're

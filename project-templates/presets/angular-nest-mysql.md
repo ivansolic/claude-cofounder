@@ -64,6 +64,12 @@ _Last updated: [YYYY-MM-DD]_
 - `pnpm db:generate` — generate Prisma client
 - `pnpm db:studio` — open Prisma Studio
 
+## Architecture
+- **Pattern:** Modular monolith (Nx workspace: `apps/web`, `apps/api`, `libs/`)
+- **Why:** one deploy and simple ops for a small team, with clear module
+  boundaries that make a later split possible if needed.
+- Revisit via the `architecture-reviewer` subagent + an ADR if a real need arises.
+
 ## Project Structure
 
 ```
