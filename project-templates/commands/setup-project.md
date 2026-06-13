@@ -43,29 +43,27 @@ able to answer. Offer examples. Accept "I don't know / none" gracefully.
 **D. Tooling:**
 - Package manager? Monorepo tool (or none)? Deployment target?
 
-**D2. Architecture** — let the user choose; present the options with trade-offs so
-they can decide. Do **not** pick for them, but if they're unsure, explain that
-most new/solo products start with a monolith or modular monolith.
+**D2. Architecture** — the user chooses. Present the options with neutral
+trade-offs and let them decide. Do **not** steer toward any option. Only if the
+user explicitly asks for your recommendation, give it — with your reasoning.
 
-> "How should the software be structured? Here's what each gives you:
+> "How should the software be structured? Each has trade-offs:
 >
-> - **Monolith** — one app, one codebase, one deploy. Simplest to build, run, and
->   debug; fewest moving parts. Trade-off: everything scales together. Best for
->   new products and small teams.
-> - **Modular monolith** — still one deploy, but with clear internal module
->   boundaries. Keeps monolith simplicity while making a future split easier.
->   Trade-off: a bit more upfront discipline.
+> - **Monolith** — one app, one codebase, one deploy. Fewest moving parts; one
+>   thing to build, run, and deploy. Everything scales together as a unit.
+> - **Modular monolith** — one deploy, with clear internal module boundaries.
+>   More upfront structure; a future split is easier if you ever need it.
 > - **Microservices** — multiple independently deployed services. Independent
->   scaling and parallel teams. Trade-off: heavy operational cost — networking,
->   multiple deploys, harder debugging across services. Usually premature for a
->   solo/early product.
-> - **Serverless (functions + managed services)** — no servers to run; cheap at
->   low traffic, fast to ship small pieces. Trade-off: cold starts, vendor
->   lock-in, harder local dev and complex/long-running flows.
+>   scaling and parallel teams, at the cost of operational complexity (networking,
+>   multiple deploys, cross-service debugging).
+> - **Serverless (functions + managed services)** — no servers to run; pay per
+>   use, fast to ship small pieces. Cold starts, vendor lock-in, and harder local
+>   dev / long-running flows.
 >
-> Which fits? (If unsure, monolith or modular monolith is the safe start.)"
+> Which one do you want? (Happy to give my recommendation and why, if you'd like.)"
 
-Record the choice in the `## Architecture` section of CLAUDE.md.
+Record the user's choice in the `## Architecture` section of CLAUDE.md. Do not
+add a recommendation there unless the user asked for one.
 
 **E. Commands** (critical — the TDD skill and auto-verify loop use these):
 - How do you start the app (dev)? Run tests? Run backend tests separately? Lint?
