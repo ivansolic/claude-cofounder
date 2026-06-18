@@ -245,6 +245,13 @@ Notice: every criterion is **observable and binary** — it either works or it
 doesn't. "User-friendly flow" is NOT an acceptance criterion. "Error message
 appears within the form, not as an alert" IS.
 
+**For UI stories**, fold the design expectations into the same acceptance
+criteria — the **user flow**, the **screens** touched, and **which states** apply
+(loading / empty / error / no-results, plus focus/disabled where relevant). Keep
+them behavioral and token-independent ("shows an empty state with an invite
+action"), not visual ("uses blue") — the look comes from tokens at build time.
+These ride in the normal AC list; you don't tag them as "design" vs "functional."
+
 ### 1.5 Commit the PM work
 
 ```
@@ -344,7 +351,23 @@ into one branch.** One story = one branch = one PR.
 
 ---
 
-## PHASE TRANSITION: /dev-handoff
+## PHASE TRANSITION
+
+### Set up the design system (once, before building UI)
+
+If this project has UI and you haven't done it yet, run — **after** the PM phase
+(so it's informed by the PRD/personas/strategy), **before** building UI:
+
+```
+/setup-design
+```
+
+It ingests your existing tokens (or a Figma export), or proposes a starter from
+your product context, then wires token compilation to your stack. One-time per
+project. (Skip for API-only/backend projects.) Tokens become the styling source
+of truth; the `ux-design` skill applies them when you build.
+
+### /dev-handoff
 
 When stories are ready and you're switching to building:
 
@@ -425,6 +448,15 @@ CHANGES) with findings sorted Critical → Important → Nitpicks.
 
 **Rule: fix all Critical and Important findings. Nitpicks are your call.**
 Skipping the review or ignoring Criticals = removing your own safety net.
+
+**For UI changes, also run the design review:**
+
+> "Invoke the design-reviewer subagent on these changes."
+
+`code-reviewer` covers logic/security; `design-reviewer` covers UI only —
+usability heuristics, all states (loading/empty/error + hover/focus/disabled),
+accessibility, and design-token adherence (no hardcoded styles). Same Critical →
+Important → Nitpicks rule. Skip it for backend-only changes.
 
 ### 2.4b Security review (for sensitive changes)
 
@@ -600,10 +632,12 @@ trusting auto-invocation.
 | Write a PRD | `/pm-execution:create-prd` |
 | Challenge a PRD | `/pm-execution:strategy-red-team` then `/pm-execution:pre-mortem` |
 | Create stories | `/pm-execution:user-stories` |
+| Set up the design system | `/setup-design` (once, after PM, before building UI) |
 | Switch to building | `/dev-handoff` |
 | Build a story | Plan mode + "Implement story docs/stories/USR-NNN..." |
 | Check it's really done | "Walk through every acceptance criterion" |
 | Review code | "Invoke code-reviewer on these changes" |
+| Review UI | "Invoke design-reviewer on these changes" (states, a11y, tokens, heuristics) |
 | Security-check a sensitive change | `/security-review` (auth, input, uploads, payments, data access) |
 | Audit dependencies | `pnpm audit` after adding/updating packages |
 | Commit + push | `/commit-push` |

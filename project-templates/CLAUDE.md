@@ -58,6 +58,13 @@ these — fill them in accurately._
 - _Keep new work consistent with this. Revisit via the `architecture-reviewer`
   subagent + an ADR when there's a real reason to change._
 
+## Design
+- **UI library / design system:** [e.g. shadcn / MUI / Chakra / custom — set during `/setup-design`]
+- **Design tokens:** `design/tokens.json` (source of truth) → compiled to [Tailwind theme / CSS variables / theme object]
+- **Rule:** all styling references **semantic tokens** — never hardcode colors, spacing, font sizes, radii. Reuse existing components; don't reinvent.
+- **Build command:** [e.g. `pnpm tokens:build`]
+- UI work follows the `ux-design` skill (heuristics, states, accessibility) and is reviewed by the `design-reviewer` subagent.
+
 ## Project Structure
 
 ```

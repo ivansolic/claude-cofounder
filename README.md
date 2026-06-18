@@ -47,17 +47,21 @@ claude-cofounder/
 │   ├── CLAUDE.md             ← per-project config incl. a Security & Data section
 │   ├── commands/             ← slash commands (you type /name)
 │   │   ├── setup-project.md  ← /setup-project onboarding interview
+│   │   ├── setup-design.md   ← /setup-design design-system/tokens setup
 │   │   ├── dev-handoff.md    ← /dev-handoff PM→Dev transition
 │   │   ├── commit-push.md    ← /commit-push with secret-scan + safety checks
 │   │   └── retro.md          ← /retro end-of-session learning capture
 │   ├── agents/               ← subagents (separate-context reviewers)
-│   │   ├── code-reviewer.md          ← adversarial review (incl. security)
-│   │   └── architecture-reviewer.md
+│   │   ├── code-reviewer.md          ← code, functions, security
+│   │   ├── architecture-reviewer.md
+│   │   └── design-reviewer.md        ← UI: heuristics, states, a11y, tokens
+│   ├── design/               ← tokens.json (DTCG) + README — design-system source of truth
 │   ├── tasks/                ← working files: todo.md, lessons.md
 │   ├── docs/                 ← document templates: ADR-TEMPLATE.md
 │   └── presets/              ← example filled stacks (e.g. angular-nest-mysql.md)
 ├── skills/
-│   └── test-driven-development/   ← user-level TDD skill (auto-applies to logic)
+│   ├── test-driven-development/   ← user-level skill (auto-applies to logic)
+│   └── ux-design/                 ← user-level skill (auto-applies to UI: heuristics, states, a11y)
 └── bin/
     └── init-project.sh       ← scaffolds a new Claude-ready project
 
@@ -73,6 +77,7 @@ claude-cofounder/
 - **`/setup-project`** — interviews you about your stack, commands, and data, then fills the project config. Run once per project.
 - **PM workflow via [pm-skills](https://github.com/phuryn/pm-skills)** — brainstorm, PRDs, critique, user stories (a separate plugin you install once; see Quick start).
 - **TDD skill** — auto-applies test-first to backend logic, stays out of the way on UI.
+- **Design layer** — a `ux-design` skill (usability heuristics, UX laws, UI states, accessibility) that auto-applies to UI; **design tokens** (`design/tokens.json`, DTCG) as the styling source of truth, set up by `/setup-design` and compiled to your stack; a `design-reviewer` subagent for UI review.
 - **Three docs** — `INSTALL.md` (setup), `BEGINNERS-GUIDE.md` (concepts), `WORKFLOW.md` (daily use).
 
 ## Quick start

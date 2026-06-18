@@ -70,6 +70,13 @@ _Last updated: [YYYY-MM-DD]_
   boundaries that make a later split possible if needed.
 - Revisit via the `architecture-reviewer` subagent + an ADR if a real need arises.
 
+## Design
+- **UI library / design system:** Angular Material + CDK
+- **Design tokens:** `design/tokens.json` (source of truth) → compiled to CSS custom properties + an Angular Material theme
+- **Rule:** all styling references **semantic tokens** — never hardcode colors, spacing, font sizes, radii. Reuse Material components; don't reinvent. Never `bypassSecurityTrust*` for styling.
+- **Build command:** `pnpm tokens:build`
+- UI work follows the `ux-design` skill and is reviewed by the `design-reviewer` subagent.
+
 ## Project Structure
 
 ```
