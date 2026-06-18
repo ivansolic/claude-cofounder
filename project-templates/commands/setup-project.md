@@ -3,7 +3,7 @@ description: First-run onboarding. Interviews the user about their stack, comman
 ---
 
 Goal: turn the placeholder `CLAUDE.md` into a real, project-specific config by
-**interviewing the user** — never guess the stack. One question group at a time,
+**interviewing the user**, never guess the stack. One question group at a time,
 wait for answers, confirm before writing.
 
 ## 1. Check current state
@@ -26,7 +26,7 @@ If they pick a preset:
 
 If they pick interview, continue to step 3.
 
-## 3. Interview — ask in small groups, wait for each answer
+## 3. Interview, ask in small groups, wait for each answer
 
 Ask these groups one at a time. Keep questions plain; a non-engineer should be
 able to answer. Offer examples. Accept "I don't know / none" gracefully.
@@ -43,20 +43,20 @@ able to answer. Offer examples. Accept "I don't know / none" gracefully.
 **D. Tooling:**
 - Package manager? Monorepo tool (or none)? Deployment target?
 
-**D2. Architecture** — the user chooses. Present the options with neutral
+**D2. Architecture**, the user chooses. Present the options with neutral
 trade-offs and let them decide. Do **not** steer toward any option. Only if the
-user explicitly asks for your recommendation, give it — with your reasoning.
+user explicitly asks for your recommendation, give it, with your reasoning.
 
 > "How should the software be structured? Each has trade-offs:
 >
-> - **Monolith** — one app, one codebase, one deploy. Fewest moving parts; one
+> - **Monolith**, one app, one codebase, one deploy. Fewest moving parts; one
 >   thing to build, run, and deploy. Everything scales together as a unit.
-> - **Modular monolith** — one deploy, with clear internal module boundaries.
+> - **Modular monolith**, one deploy, with clear internal module boundaries.
 >   More upfront structure; a future split is easier if you ever need it.
-> - **Microservices** — multiple independently deployed services. Independent
+> - **Microservices**, multiple independently deployed services. Independent
 >   scaling and parallel teams, at the cost of operational complexity (networking,
 >   multiple deploys, cross-service debugging).
-> - **Serverless (functions + managed services)** — no servers to run; pay per
+> - **Serverless (functions + managed services)**, no servers to run; pay per
 >   use, fast to ship small pieces. Cold starts, vendor lock-in, and harder local
 >   dev / long-running flows.
 >
@@ -65,7 +65,7 @@ user explicitly asks for your recommendation, give it — with your reasoning.
 Record the user's choice in the `## Architecture` section of CLAUDE.md. Do not
 add a recommendation there unless the user asked for one.
 
-**E. Commands** (critical — the TDD skill and auto-verify loop use these):
+**E. Commands** (critical, the TDD skill and auto-verify loop use these):
 - How do you start the app (dev)? Run tests? Run backend tests separately? Lint?
   Typecheck? Build? Any DB commands (migrate/generate/studio)?
 - If the user doesn't know, infer sensible defaults from the stack and the
@@ -76,17 +76,17 @@ add a recommendation there unless the user asked for one.
 - If they have none yet, say you'll fill in sensible defaults for the stack and
   they can refine later.
 
-**G. Security & Data** (do not skip — fills the Security & Data section):
+**G. Security & Data** (do not skip, fills the Security & Data section):
 First tell the user:
 
 > "A security baseline already applies to all code automatically (input
 > validation, safe queries, authorization on every endpoint, no personal data in
-> logs, secrets hygiene, dependency audits) — you don't need to ask for it.
+> logs, secrets hygiene, dependency audits), you don't need to ask for it.
 > I just need the facts specific to this project:"
 
 Then ask, in plain language:
 1. **What personal data will this handle?** (names, emails, addresses, IPs,
-   photos… — or none). Anything sensitive — payments, health, documents?
+   photos…, or none). Anything sensitive, payments, health, documents?
 2. **Who are the users and where?** (If EU users → note that GDPR applies and
    data export/deletion must be designed in, not bolted on.)
 3. **Will users log in?** If yes: email+password, Google/OAuth login, or company
@@ -94,12 +94,12 @@ Then ask, in plain language:
 4. **Any known compliance requirements** from their industry or clients?
    (If they don't know: record "GDPR if EU users; none other known".)
 5. **Anything especially worth protecting** in this product? (the "crown
-   jewels" — e.g. customer lists, pricing, documents)
+   jewels", e.g. customer lists, pricing, documents)
 
 From the answers, fill the **Sensitive data inventory**, **Users & compliance**,
 and **Authentication & access** subsections. Where the user is unsure, write a
 secure default and mark it `# TODO: confirm` (e.g. retention: "until account
-deletion # TODO: confirm"). Never write "no security needed" — if the project
+deletion # TODO: confirm"). Never write "no security needed", if the project
 truly handles no personal data, record that explicitly and keep the checkpoints.
 
 ## 4. Fill in CLAUDE.md
@@ -117,6 +117,6 @@ stack-agnostic). Update `_Last updated:_` to today's date.
   directly. The TDD skill will use the Commands you set here."
 
 ## Safety Rules
-- Never invent a stack — ask, or read the project's manifest and confirm.
+- Never invent a stack, ask, or read the project's manifest and confirm.
 - Never overwrite a CLAUDE.md that's already filled without explicit confirmation.
 - Keep the placeholders' section structure intact; only replace the `[...]` parts.

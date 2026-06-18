@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# install.sh — Install Claude Cofounder onto this machine.
+# install.sh, Install Claude Cofounder onto this machine.
 #
 # Copies (or symlinks) the system into the locations Claude Code reads:
 #   ~/.claude/CLAUDE.md                  global baseline instructions
@@ -28,7 +28,7 @@ place() { # place <src> <dest>
 }
 
 echo "Installing Claude Cofounder from: $REPO_DIR"
-[[ "$LINK" == true ]] && echo "  (symlink mode — git pull will update live)"
+[[ "$LINK" == true ]] && echo "  (symlink mode, git pull will update live)"
 
 # 1. Templates (organized into agents/ commands/ tasks/ docs/ presets/)
 echo "  → templates → ~/.claude-templates/"
@@ -51,18 +51,18 @@ echo "  → init-project.sh → ~/bin/"
 place "$REPO_DIR/bin/init-project.sh" ~/bin/init-project.sh
 chmod +x ~/bin/init-project.sh 2>/dev/null || true
 
-# 4. Global baseline — never clobber an existing personal global
+# 4. Global baseline, never clobber an existing personal global
 echo "  → global baseline → ~/.claude/CLAUDE.md"
 mkdir -p ~/.claude
 if [[ -e ~/.claude/CLAUDE.md ]]; then
   cp "$REPO_DIR/global/CLAUDE.md" ~/.claude/claude-cofounder-baseline.md
-  echo "    ! ~/.claude/CLAUDE.md already exists — left untouched."
-  echo "      Baseline saved to ~/.claude/claude-cofounder-baseline.md — merge what you want."
+  echo "    ! ~/.claude/CLAUDE.md already exists, left untouched."
+  echo "      Baseline saved to ~/.claude/claude-cofounder-baseline.md, merge what you want."
 else
   cp "$REPO_DIR/global/CLAUDE.md" ~/.claude/CLAUDE.md
 fi
 
-# 5. Shell profile — PATH + auto-verify (idempotent)
+# 5. Shell profile, PATH + auto-verify (idempotent)
 PROFILE="$HOME/.bash_profile"; [[ "${SHELL:-}" == *zsh* ]] && PROFILE="$HOME/.zshrc"
 echo "  → shell profile → $PROFILE"
 grep -q 'HOME/bin' "$PROFILE" 2>/dev/null || echo 'export PATH="$HOME/bin:$PATH"' >> "$PROFILE"
@@ -72,7 +72,7 @@ cat <<'DONE'
 
 ✅ Claude Cofounder installed.
 
-ONE more step — install the PM skills (these are a separate plugin you fetch
+ONE more step, install the PM skills (these are a separate plugin you fetch
 once; you always get the maintained version). Start Claude, then paste:
 
   /plugin marketplace add phuryn/pm-skills

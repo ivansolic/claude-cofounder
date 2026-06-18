@@ -6,7 +6,7 @@ _Claude: replace this section with the current task. Only ONE active task at a t
 [One-sentence description of what we're building or fixing.]
 
 ## Context
-[Why this task exists — ticket link, bug description, feature request, or my own words.]
+[Why this task exists, ticket link, bug description, feature request, or my own words.]
 
 ## Plan
 - [ ] Step 1

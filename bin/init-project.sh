@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# init-project.sh — Initialize a new Claude-ready project from your templates
+# init-project.sh, Initialize a new Claude-ready project from your templates
 #
 # Usage:
 #   init-project.sh <project-name>
@@ -145,7 +145,7 @@ echo "  ├── .claude/"
 echo "  │   ├── agents/     (code-reviewer, architecture-reviewer, design-reviewer)"
 echo "  │   ├── commands/   (setup-project, setup-design, commit-push, dev-handoff, retro)"
 echo "  │   └── tasks/      (todo.md, lessons.md)"
-echo "  ├── design/         (tokens.json — design system source of truth)"
+echo "  ├── design/         (tokens.json, design system source of truth)"
 echo "  └── docs/           (prds, stories, decisions, research, templates)"
 echo ""
 echo "PM work (PRDs, critique, stories) is driven by the pm-skills plugins:"

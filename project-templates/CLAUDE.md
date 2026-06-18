@@ -12,10 +12,10 @@ _Last updated: [YYYY-MM-DD]_
 
 ## Stack
 
-_Replace the placeholders with your actual stack. Keep it specific — versions matter._
+_Replace the placeholders with your actual stack. Keep it specific, versions matter._
 
 ### Frontend
-- **Framework:** [e.g. React 19 / Angular 22 / Vue 3 / Svelte — or "none / API-only"]
+- **Framework:** [e.g. React 19 / Angular 22 / Vue 3 / Svelte, or "none / API-only"]
 - **Language:** [e.g. TypeScript strict mode]
 - **State / data:** [state library, data-fetching approach]
 - **UI library:** [component/design system]
@@ -28,7 +28,7 @@ _Replace the placeholders with your actual stack. Keep it specific — versions 
 - **ORM / data access:** [e.g. Prisma / Drizzle / SQLAlchemy / none]
 - **Database:** [e.g. PostgreSQL / MySQL / SQLite / MongoDB]
 - **Validation:** [e.g. zod / class-validator / pydantic]
-- **Auth:** [e.g. JWT / OAuth / session — decide per project]
+- **Auth:** [e.g. JWT / OAuth / session, decide per project]
 - **Testing:** [e.g. Jest + Supertest / pytest]
 - **API style:** [e.g. REST + OpenAPI / GraphQL / gRPC]
 
@@ -41,7 +41,7 @@ _Replace the placeholders with your actual stack. Keep it specific — versions 
 ## Commands
 
 _The exact commands Claude should run. The TDD skill and the auto-verify loop use
-these — fill them in accurately._
+these, fill them in accurately._
 
 - **dev:** [start the app, e.g. `pnpm dev`]
 - **test:** [run unit tests, e.g. `pnpm test`]
@@ -53,15 +53,15 @@ these — fill them in accurately._
 - **db (migrate / generate / studio):** [if applicable]
 
 ## Architecture
-- **Pattern:** [Monolith / Modular monolith / Microservices / Serverless — chosen during `/setup-project`]
+- **Pattern:** [Monolith / Modular monolith / Microservices / Serverless, chosen during `/setup-project`]
 - **Why:** [one line on the trade-off you accepted]
 - _Keep new work consistent with this. Revisit via the `architecture-reviewer`
   subagent + an ADR when there's a real reason to change._
 
 ## Design
-- **UI library / design system:** [e.g. shadcn / MUI / Chakra / custom — set during `/setup-design`]
+- **UI library / design system:** [e.g. shadcn / MUI / Chakra / custom, set during `/setup-design`]
 - **Design tokens:** `design/tokens.json` (source of truth) → compiled to [Tailwind theme / CSS variables / theme object]
-- **Rule:** all styling references **semantic tokens** — never hardcode colors, spacing, font sizes, radii. Reuse existing components; don't reinvent.
+- **Rule:** all styling references **semantic tokens**, never hardcode colors, spacing, font sizes, radii. Reuse existing components; don't reinvent.
 - **Build command:** [e.g. `pnpm tokens:build`]
 - UI work follows the `ux-design` skill (heuristics, states, accessibility) and is reviewed by the `design-reviewer` subagent.
 
@@ -74,7 +74,7 @@ these — fill them in accurately._
 
 ## Conventions
 
-_Your house rules. Be concrete — these shape every change Claude makes._
+_Your house rules. Be concrete, these shape every change Claude makes._
 
 ### Frontend
 - [e.g. component model, state patterns, control-flow syntax, file organization]
@@ -91,30 +91,30 @@ _Your house rules. Be concrete — these shape every change Claude makes._
 ## Security & Data
 
 _The global Security Baseline (in `~/.claude/CLAUDE.md`) applies to all code in
-this project automatically — input validation, parameterized queries, authz on
+this project automatically, input validation, parameterized queries, authz on
 every endpoint, no PII in logs, secrets hygiene, dependency audit. The section
 below records what is **specific to this project**. `/setup-project` fills it in._
 
 ### Sensitive data inventory
-- **Personal data (PII) handled:** [e.g. names, emails, IP addresses — or "none"]
-- **Special/sensitive data:** [e.g. payment data, health data — or "none"]
+- **Personal data (PII) handled:** [e.g. names, emails, IP addresses, or "none"]
+- **Special/sensitive data:** [e.g. payment data, health data, or "none"]
 - **Where it lives:** [DB tables/collections, third-party processors]
 - **Retention:** [how long is each kept; what gets deleted/anonymized, when]
 
 ### Users & compliance
 - **User base / region:** [e.g. EU users → GDPR applies]
 - **Compliance requirements:** [GDPR / none known / industry-specific]
-- **Data subject rights (if GDPR):** export and deletion must work end-to-end —
+- **Data subject rights (if GDPR):** export and deletion must work end-to-end, 
   [where is delete implemented / TODO]
 
 ### Authentication & access
 - **Auth model:** [none / email+password / OAuth provider / SSO]
-- **Roles & permissions:** [e.g. user/admin — who may access what]
+- **Roles & permissions:** [e.g. user/admin, who may access what]
 - **Session strategy:** [cookies (httpOnly+Secure+SameSite) / tokens + refresh]
 
 ### Project-specific security rules
 - [e.g. "all uploads go to S3, never local disk", "admin routes require 2FA",
-  "rate limit: 5 login attempts / 15 min" — added as they're decided]
+  "rate limit: 5 login attempts / 15 min", added as they're decided]
 
 ### Security checkpoints (process, always on)
 - Changes touching auth, input handling, uploads, payments, or data access →
@@ -127,11 +127,11 @@ below records what is **specific to this project**. `/setup-project` fills it in
 
 - `main` is protected. Never commit or push directly to it.
 - Every change lives on a branch:
-  - `feature/<short-description>` — new functionality
-  - `fix/<short-description>` — bug fixes
-  - `chore/<short-description>` — maintenance, dependencies
-  - `docs/<short-description>` — documentation only
-  - `refactor/<short-description>` — code restructuring without behavior change
+  - `feature/<short-description>`, new functionality
+  - `fix/<short-description>`, bug fixes
+  - `chore/<short-description>`, maintenance, dependencies
+  - `docs/<short-description>`, documentation only
+  - `refactor/<short-description>`, code restructuring without behavior change
 - Commit messages use Conventional Commits: `type(scope): description`
   - Examples: `feat(api): add user search endpoint`, `fix(web): handle empty list state`
 - One logical change per commit
@@ -144,11 +144,11 @@ below records what is **specific to this project**. `/setup-project` fills it in
 
 Product specs live in `/docs/`:
 
-- **`/docs/prds/`** — PRDs (one per major feature)
-- **`/docs/stories/`** — user stories (smaller units of work)
-- **`/docs/decisions/`** — Architecture Decision Records (capture WHY for non-obvious choices)
-- **`/docs/research/`** — user research, interviews, market notes
-- **`/docs/templates/`** — ADR template (PRD and story format come from the pm-skills plugins, not a local template)
+- **`/docs/prds/`**, PRDs (one per major feature)
+- **`/docs/stories/`**, user stories (smaller units of work)
+- **`/docs/decisions/`**, Architecture Decision Records (capture WHY for non-obvious choices)
+- **`/docs/research/`**, user research, interviews, market notes
+- **`/docs/templates/`**, ADR template (PRD and story format come from the pm-skills plugins, not a local template)
 
 PRDs and user stories are generated by the pm-skills plugins (`/pm-execution:create-prd`, `/pm-execution:user-stories`) and saved here as `PRD-NNN-<slug>.md` / `USR-NNN-<slug>.md`.
 
@@ -161,7 +161,7 @@ When implementing a feature, **first read the relevant PRD or story** before wri
 _Claude: append project-specific lessons here when I correct you._
 
 Format:
-- **YYYY-MM-DD** — [what went wrong]. **Rule:** [what to do next time].
+- **YYYY-MM-DD**, [what went wrong]. **Rule:** [what to do next time].
 
 ---
 

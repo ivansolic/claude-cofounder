@@ -1,7 +1,7 @@
 <!--
-Claude Cofounder — baseline global instructions.
+Claude Cofounder, baseline global instructions.
 This is a starting point: copy it to ~/.claude/CLAUDE.md and make it yours.
-The first-person voice ("I want…") is intentional — when you adopt this file,
+The first-person voice ("I want…") is intentional, when you adopt this file,
 "I" means you. Add your own preferences and let lessons accumulate over time
 (per-project lessons live in each project's .claude/tasks/lessons.md).
 -->
@@ -18,7 +18,7 @@ The first-person voice ("I want…") is intentional — when you adopt this file
 
 ### Plan Mode First
 - Enter plan mode for any task with 3+ steps or architectural decisions
-- If something goes sideways mid-task, STOP and re-plan — don't keep pushing through a failing approach
+- If something goes sideways mid-task, STOP and re-plan, don't keep pushing through a failing approach
 - Use plan mode for verification and investigation steps too, not only for building
 - Write a detailed spec upfront; don't work from ambiguity
 
@@ -30,19 +30,19 @@ The first-person voice ("I want…") is intentional — when you adopt this file
 
 ### Verification Before "Done"
 - Never mark a task complete without proving it works
-- Run the dev server, run tests, or demonstrate the behavior — whichever applies to the change
+- Run the dev server, run tests, or demonstrate the behavior, whichever applies to the change
 - If something cannot be verified in this environment, say so explicitly; do not pretend it's done
 - Ask yourself: "Would a staff engineer approve this before shipping?"
 
 ### Elegance (balanced)
 - For non-trivial changes, pause and ask: "Is there a more elegant way to do this?"
 - If a fix feels hacky, propose the elegant alternative BEFORE applying any workaround
-- Skip this for obvious, simple fixes — don't over-engineer
+- Skip this for obvious, simple fixes, don't over-engineer
 
 ### Bug Fixing Protocol
 - When I report a bug: investigate first. Check logs, errors, failing tests, relevant code paths
 - Identify root cause. No bandaids or temporary fixes without explicit flagging
-- Propose the fix in plan mode BEFORE applying it — I want to approve the approach
+- Propose the fix in plan mode BEFORE applying it, I want to approve the approach
 - Autonomous bug fixing without approval is OFF at my current experience level
 
 ## Git Discipline
@@ -50,7 +50,7 @@ The first-person voice ("I want…") is intentional — when you adopt this file
 - Branch naming: `feature/short-description`, `fix/short-description`, `chore/short-description`, `docs/short-description`, `refactor/short-description`
 - Commit messages follow Conventional Commits: `type(scope): description`
   - Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `style`, `perf`
-- One logical change per commit — don't mix unrelated changes
+- One logical change per commit, don't mix unrelated changes
 - Before pushing: run tests and typecheck locally
 - Never commit secrets, `.env` files, credentials, API keys, or large binaries
 - Never `git push --force` to shared branches; use `--force-with-lease` only on branches I haven't shared yet
@@ -59,12 +59,12 @@ The first-person voice ("I want…") is intentional — when you adopt this file
 ## Code Style
 - Strict typing always (no `any`, no implicit anything)
 - Small, single-purpose functions
-- Never silently swallow errors — raise, log, or propagate explicitly
+- Never silently swallow errors, raise, log, or propagate explicitly
 - No TODOs or temporary fixes left in code without an associated issue reference
 
 ## Testing (TDD-lite)
 - For logic with clear rules (backend, API, services, validation, calculations, bug fixes): write the test from the acceptance criterion first, watch it fail, then implement (RED → GREEN → REFACTOR). The `test-driven-development` skill auto-applies here.
-- Skip test-first for UI/component layout, visual exploration, prototypes, and trivial fixes — add tests after instead.
+- Skip test-first for UI/component layout, visual exploration, prototypes, and trivial fixes, add tests after instead.
 - Never weaken or edit a test just to make it pass; fix the implementation.
 
 ## Security Baseline (non-negotiable, applies to ALL code)
@@ -73,19 +73,19 @@ Security is a default, not a feature request. Apply these rules to every piece o
 
 ### Input & output
 - **Validate ALL input at the boundary** (API endpoints, form handlers, file uploads, query params, headers, webhooks). Use allowlists over blocklists. Reject, don't sanitize-and-hope.
-- **Parameterized queries ONLY.** Never build SQL/queries by string concatenation — no exceptions, including "just this internal script."
+- **Parameterized queries ONLY.** Never build SQL/queries by string concatenation, no exceptions, including "just this internal script."
 - **Encode output for its context** (HTML, attribute, URL, JS) to prevent XSS. Use the framework's escaping; never bypass it (`innerHTML`, `dangerouslySetInnerHTML`, `bypassSecurityTrust*`) without explicit justification.
 - Never pass user input into shell commands, file paths, `eval`, or template engines. If unavoidable, strict allowlist validation first.
 
 ### Authentication & authorization
 - **Never roll your own auth or crypto.** Use the framework/library standard (e.g. established JWT/session libraries, bcrypt/argon2 for passwords, platform crypto APIs).
-- **Authorize on the server, on EVERY endpoint** — deny by default. UI hiding is not authorization.
+- **Authorize on the server, on EVERY endpoint**, deny by default. UI hiding is not authorization.
 - **Check object-level access** (IDOR): "user is logged in" ≠ "user may access THIS record." Verify ownership/permission for the specific resource.
 - Sessions/tokens: httpOnly + Secure + SameSite cookies; short-lived tokens with refresh; invalidate on logout and password change.
 - Rate-limit authentication endpoints and any expensive/public endpoint. Lock or slow down after repeated failures.
 
 ### Secrets
-- Never in code, comments, logs, error messages, commits, or build artifacts. Dev: `.env` (gitignored). Production: platform environment variables or a secrets manager — never baked into images or bundles.
+- Never in code, comments, logs, error messages, commits, or build artifacts. Dev: `.env` (gitignored). Production: platform environment variables or a secrets manager, never baked into images or bundles.
 - If a secret ever leaks (committed, logged, pasted), treat it as compromised: rotate it immediately, don't just delete the reference.
 
 ### Data protection & privacy (GDPR-aware by default)
@@ -106,8 +106,8 @@ Security is a default, not a feature request. Apply these rules to every piece o
 - File uploads: validate type by content (not extension alone), enforce size limits, randomize stored names, store outside the webroot / in object storage, never execute uploads.
 
 ### Process
-- For any change touching auth, user input, file handling, payments, or data access: run `/security-review` before committing — in addition to code-reviewer.
-- At design time (PRD) for sensitive features: do a security pre-mortem — "it's 6 months later and we had a breach: what was the hole?"
+- For any change touching auth, user input, file handling, payments, or data access: run `/security-review` before committing, in addition to code-reviewer.
+- At design time (PRD) for sensitive features: do a security pre-mortem, "it's 6 months later and we had a breach: what was the hole?"
 - When in doubt between convenient and secure, pick secure and tell me the tradeoff.
 
 ## Core Principles
@@ -146,14 +146,14 @@ This system is built for a PM/builder. When working on product topics (not just 
 - When proposing implementation, link back to the spec it implements
 
 ### Templates
-- PRD and user-story **format is owned by the pm-skills plugins** (`/pm-execution:create-prd`, `/pm-execution:user-stories`) — there is no local PRD/story template to copy
+- PRD and user-story **format is owned by the pm-skills plugins** (`/pm-execution:create-prd`, `/pm-execution:user-stories`), there is no local PRD/story template to copy
 - The only local template is the ADR template in `/docs/templates/` (architecture decisions have no pm-skills equivalent)
 - Whatever pm-skills generates, save it into the `/docs/` structure with the project's naming convention (`PRD-NNN-<slug>.md`, `USR-NNN-<slug>.md`)
 
 ## Task Management
 For any non-trivial task in a project:
 
-0. At the start of each session, read `.claude/tasks/todo.md` if it exists to recover the active task and its progress (which steps are done vs. remaining). Verify the "done" steps against the actual code/git state before continuing — the checklist is intent, the code is the truth. Don't redo finished work.
+0. At the start of each session, read `.claude/tasks/todo.md` if it exists to recover the active task and its progress (which steps are done vs. remaining). Verify the "done" steps against the actual code/git state before continuing, the checklist is intent, the code is the truth. Don't redo finished work.
 1. Write the plan to `.claude/tasks/todo.md` with checkable items
 2. Get my sign-off on the plan before implementation
 3. Mark items complete as you progress
@@ -163,7 +163,7 @@ For any non-trivial task in a project:
 
 ## Subagent and Command Usage
 
-**PM work (Phase 1 — discovery & specification) is powered by the `pm-skills` plugins, never by custom commands or subagents:**
+**PM work (Phase 1, discovery & specification) is powered by the `pm-skills` plugins, never by custom commands or subagents:**
 
 - **Brainstorm:** `/pm-product-discovery:brainstorm-ideas-new` (or `:brainstorm-ideas-existing`)
 - **Write a PRD:** `/pm-execution:create-prd`
@@ -175,13 +175,13 @@ Do NOT use or recreate any custom PM command (e.g. `/new-prd`) or PM subagent (e
 
 **Dev subagents (invoke proactively when context fits, but I will also invoke explicitly):**
 
-- **`code-reviewer`** — after implementing any non-trivial code change, before marking the task done. Adversarial senior staff engineer review.
-- **`architecture-reviewer`** — when making architectural decisions, adding major features, or before big refactors. Read-only analysis.
+- **`code-reviewer`**, after implementing any non-trivial code change, before marking the task done. Adversarial senior staff engineer review.
+- **`architecture-reviewer`**, when making architectural decisions, adding major features, or before big refactors. Read-only analysis.
 
 **Workflow slash commands (only invoked explicitly by me, never automatically):**
 
-- **`/commit-push`** — stage, commit with conventional message, and push to current branch with safety checks.
-- **`/dev-handoff`** — transition from the PM phase to development (verify spec, seed todo.md, create the feature branch, open the editor).
+- **`/commit-push`**, stage, commit with conventional message, and push to current branch with safety checks.
+- **`/dev-handoff`**, transition from the PM phase to development (verify spec, seed todo.md, create the feature branch, open the editor).
 
 **Rule:** even when I have not explicitly invoked a subagent, if you finish a code change without invoking code-reviewer, remind me. Don't silently skip the review step.
 
@@ -190,4 +190,4 @@ After I point out a mistake, ask explicitly:
 
 > "Should I update the project CLAUDE.md and/or lessons.md so this doesn't repeat?"
 
-Then do it if I say yes. Do not silently update — I want to see the proposed rule first.
+Then do it if I say yes. Do not silently update, I want to see the proposed rule first.

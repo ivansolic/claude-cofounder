@@ -1,5 +1,5 @@
 ---
-description: Stage, commit with conventional commit message, and push to the current branch. Runs safety checks first — refuses to push to main, checks for secrets, runs tests and typecheck.
+description: Stage, commit with conventional commit message, and push to the current branch. Runs safety checks first, refuses to push to main, checks for secrets, runs tests and typecheck.
 ---
 
 Execute the following steps in order. **If any step fails or reveals a problem, STOP and report to the user. Do not continue to the next step.**
@@ -55,14 +55,14 @@ Optional body explaining *why*, not *what*. Keep lines under 72 chars.
 ```
 
 Types:
-- `feat` — new feature
-- `fix` — bug fix
-- `chore` — maintenance, dependencies, build config
-- `docs` — documentation only
-- `refactor` — code change without behavior change
-- `test` — adding or fixing tests
-- `style` — formatting, whitespace
-- `perf` — performance improvement
+- `feat`, new feature
+- `fix`, bug fix
+- `chore`, maintenance, dependencies, build config
+- `docs`, documentation only
+- `refactor`, code change without behavior change
+- `test`, adding or fixing tests
+- `style`, formatting, whitespace
+- `perf`, performance improvement
 
 Show the message to the user. Wait for approval or edits.
 

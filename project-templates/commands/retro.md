@@ -1,8 +1,8 @@
 ---
-description: End-of-session retro. Captures what was learned this session and routes each lesson to the right place — project-specific lessons to .claude/tasks/lessons.md, general rules as a proposed global CLAUDE.md update. Run before wrapping up a working session.
+description: End-of-session retro. Captures what was learned this session and routes each lesson to the right place, project-specific lessons to .claude/tasks/lessons.md, general rules as a proposed global CLAUDE.md update. Run before wrapping up a working session.
 ---
 
-A short retrospective so learnings get captured while fresh — not only when a
+A short retrospective so learnings get captured while fresh, not only when a
 correction happens. Keep it to a few minutes.
 
 ## 1. Gather the lessons
@@ -10,7 +10,7 @@ Look back over this session (the conversation, any corrections the user made, an
 dead ends or surprises) and propose a short list of concrete lessons. Phrase each
 as a **rule for next time**, not a vague observation.
 
-If genuinely nothing notable happened, say so and stop — don't invent lessons.
+If genuinely nothing notable happened, say so and stop, don't invent lessons.
 
 ## 2. Categorize each lesson by scope
 For each lesson, decide where it belongs:
@@ -23,12 +23,12 @@ For each lesson, decide where it belongs:
 
 ## 3. Show the user before writing
 Present the proposed lessons grouped by destination. Ask the user to confirm,
-edit, or drop any. **Do not write anything until they approve** — especially the
+edit, or drop any. **Do not write anything until they approve**, especially the
 global CLAUDE.md, which affects every project.
 
 ## 4. Apply
 - Append approved project lessons to `.claude/tasks/lessons.md`, dated, each
-  phrased as a rule: `- YYYY-MM-DD — [what happened]. Rule: [what to do next time].`
+  phrased as a rule: `- YYYY-MM-DD, [what happened]. Rule: [what to do next time].`
 - Append approved durable rules to this project's `CLAUDE.md` → Corrections.
 - For approved global rules, edit `~/.claude/CLAUDE.md`.
 
@@ -39,4 +39,4 @@ session later with `claude --continue`.
 ## Safety Rules
 - Never write a lesson the user didn't approve.
 - Never edit the global CLAUDE.md without explicit confirmation.
-- Don't duplicate a lesson that's already recorded — check before appending.
+- Don't duplicate a lesson that's already recorded, check before appending.

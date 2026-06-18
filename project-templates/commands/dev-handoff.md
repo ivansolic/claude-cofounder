@@ -15,10 +15,10 @@ plugins (`/pm-execution:create-prd`, `/pm-execution:user-stories`), so check for
 substance, not for exact section names.
 
 For a **PRD**, confirm it has:
-- [ ] A clear problem / background — who hurts and why now (not placeholder text)
-- [ ] A measurable objective or Key Result — how we'll know it worked
+- [ ] A clear problem / background, who hurts and why now (not placeholder text)
+- [ ] A measurable objective or Key Result, how we'll know it worked
 - [ ] A solution with the key features described
-- [ ] Assumptions flagged — what's believed but not yet validated
+- [ ] Assumptions flagged, what's believed but not yet validated
 
 For a **story**, confirm it has:
 - [ ] A description in "As a / I want / So that" form
@@ -41,7 +41,7 @@ Update `.claude/tasks/todo.md` with:
 ## Context
 - Spec: [path to PRD/story]
 - Key PM decisions made during discovery:
-  - [decision 1 — pulled from this conversation]
+  - [decision 1, pulled from this conversation]
   - [decision 2]
   - [...]
 - Out of scope (do NOT build):
@@ -78,7 +78,7 @@ code .
 ```
 
 If `code` command is not found, tell the user:
-> "VS Code CLI not installed. In VS Code: Cmd+Shift+P → 'Shell Command: Install code command in PATH'. Opening skipped — open VS Code manually."
+> "VS Code CLI not installed. In VS Code: Cmd+Shift+P → 'Shell Command: Install code command in PATH'. Opening skipped, open VS Code manually."
 
 ## 6. Set the development frame
 Tell the user:
@@ -93,5 +93,5 @@ Tell the user:
 
 ## Safety Rules
 - Never create the branch from anything other than up-to-date main (unless user explicitly says otherwise)
-- Never skip the spec readiness check silently — gaps must be acknowledged
+- Never skip the spec readiness check silently, gaps must be acknowledged
 - Never overwrite an existing in-progress task in todo.md without asking

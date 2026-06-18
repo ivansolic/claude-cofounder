@@ -1,18 +1,18 @@
-# INSTALL.md — Complete Mac Setup, Step by Step
+# INSTALL.md, Complete Mac Setup, Step by Step
 
 Follow these steps **in order**. Total time: ~30-40 minutes if starting from zero.
-Each step ends with a ✓ CHECK — verify it before moving on.
+Each step ends with a ✓ CHECK, verify it before moving on.
 
 ---
 
-## Step 0 — Open Terminal
+## Step 0, Open Terminal
 
 Press `Cmd + Space`, type `Terminal`, hit Enter.
 All commands below are typed there.
 
 ---
 
-## Step 1 — Install Homebrew (Mac package manager)
+## Step 1, Install Homebrew (Mac package manager)
 
 Check if you already have it:
 ```bash
@@ -24,15 +24,15 @@ If you see "command not found":
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-Follow the on-screen instructions (it may ask for your Mac password and tell you to run 1-2 extra commands at the end — do them).
+Follow the on-screen instructions (it may ask for your Mac password and tell you to run 1-2 extra commands at the end, do them).
 
 **✓ CHECK:** `brew --version` shows a version number.
 
 ---
 
-## Step 2 — Install Node.js, Git, GitHub CLI (and pnpm if JS/TS)
+## Step 2, Install Node.js, Git, GitHub CLI (and pnpm if JS/TS)
 
-`node`, `git`, `gh` are always required — Claude Code itself runs on Node.
+`node`, `git`, `gh` are always required, Claude Code itself runs on Node.
 `pnpm` is only needed for JS/TS projects; skip it otherwise and install your
 language's tooling instead (you set the real commands later via `/setup-project`).
 
@@ -50,7 +50,7 @@ gh --version
 
 ---
 
-## Step 3 — Install Claude Code
+## Step 3, Install Claude Code
 
 ```bash
 npm install -g @anthropic-ai/claude-code
@@ -66,18 +66,18 @@ First launch will walk you through authentication with your Anthropic account.
 
 ---
 
-## Step 4 — Install VS Code + `code` command
+## Step 4, Install VS Code + `code` command
 
 1. Download from https://code.visualstudio.com and drag to Applications
 2. Open VS Code
 3. Press `Cmd + Shift + P`, type `shell command`, select:
    **Shell Command: Install 'code' command in PATH**
 
-**✓ CHECK:** open a NEW terminal window, type `code --version` — shows a version.
+**✓ CHECK:** open a NEW terminal window, type `code --version`, shows a version.
 
 ---
 
-## Step 5 — GitHub account + authentication
+## Step 5, GitHub account + authentication
 
 1. Create account at https://github.com if you don't have one
 2. Authenticate the CLI:
@@ -91,11 +91,11 @@ Follow the browser flow.
 
 ---
 
-## Step 6 — Clone Claude Cofounder and install it
+## Step 6, Clone Claude Cofounder and install it
 
-Everything below — the global instructions, project templates, stack presets, the
+Everything below, the global instructions, project templates, stack presets, the
 TDD skill, the `init-project.sh` scaffolder, your PATH, and the auto-verify env
-var — is installed by one script.
+var, is installed by one script.
 
 ```bash
 mkdir -p ~/code && cd ~/code
@@ -105,17 +105,17 @@ cd claude-cofounder
 ```
 
 `install.sh` puts everything where Claude Code reads it:
-- `~/.claude/CLAUDE.md` — global baseline instructions + the Security Baseline
-- `~/.claude-templates/` — project templates + `presets/`
-- `~/.claude/skills/test-driven-development/` — the auto-applying TDD skill
-- `~/bin/init-project.sh` — the project scaffolder
-- your shell profile — adds `~/bin` to PATH and sets `CLAUDE_CODE_AUTO_VERIFY=1`
+- `~/.claude/CLAUDE.md`, global baseline instructions + the Security Baseline
+- `~/.claude-templates/`, project templates + `presets/`
+- `~/.claude/skills/test-driven-development/`, the auto-applying TDD skill
+- `~/bin/init-project.sh`, the project scaffolder
+- your shell profile, adds `~/bin` to PATH and sets `CLAUDE_CODE_AUTO_VERIFY=1`
 
 It will NOT overwrite an existing `~/.claude/CLAUDE.md` (it saves the baseline to
 `~/.claude/claude-cofounder-baseline.md` instead, so your personal global is safe).
 
 > **Tip:** `./install.sh --link` symlinks instead of copying, so a later
-> `git pull` updates your installed system live — handy if you'll improve it.
+> `git pull` updates your installed system live, handy if you'll improve it.
 
 Then reload your shell so the PATH and env var take effect:
 ```bash
@@ -128,21 +128,21 @@ source ~/.bash_profile     # or ~/.zshrc if you use zsh
 **✓ CHECK 4:** `echo $CLAUDE_CODE_AUTO_VERIFY` prints `1`.
 **✓ CHECK 5:** `cat ~/.claude/skills/test-driven-development/SKILL.md | head -2` shows the skill's frontmatter.
 
-_PM work — commands, critique, and the PRD/story format — is owned by the
+_PM work, commands, critique, and the PRD/story format, is owned by the
 pm-skills plugins (Step 7), not custom files. The TDD skill auto-applies to
 backend logic and stays out of the way for UI/prototype work; you never invoke it._
 
 ---
 
-## Step 7 — PM plugins (pm-skills) — the source of all PM commands
+## Step 7, PM plugins (pm-skills), the source of all PM commands
 
 All Phase 1 PM work (brainstorm, PRD, critique, user stories) is powered by the
 **pm-skills** marketplace. These plugins replace any custom PM command or
-subagent — there is no `/new-prd` or `product-critic` in this setup.
+subagent, there is no `/new-prd` or `product-critic` in this setup.
 
 ### Where plugins live
 Plugins install into `~/.claude/plugins/`. They do NOT touch your
-`~/.claude/CLAUDE.md` — your global instructions and the plugins are separate
+`~/.claude/CLAUDE.md`, your global instructions and the plugins are separate
 layers that work together.
 
 ### How to install
@@ -162,16 +162,16 @@ Plugin commands run **inside a Claude session**, not from the shell. Start
 /reload-plugins
 ```
 
-`pm-execution` and `pm-product-discovery` are the two you'll use most — they
+`pm-execution` and `pm-product-discovery` are the two you'll use most, they
 cover PRDs, user stories, critique (red-team, pre-mortem), brainstorming, and
 feature triage. The rest are situational (see the bonus table in WORKFLOW.md).
 
 ### Good habits
 1. **Read before you lean on it.** Open `~/.claude/plugins/<name>/` and skim the
-   SKILL.md files. You're installing instructions that shape Claude's behavior —
+   SKILL.md files. You're installing instructions that shape Claude's behavior, 
    know what they say. This is also how you learn to write your own.
 2. **Save outputs into your `docs/` structure.** The skills generate content;
-   you keep the folder convention — drop PRDs into `docs/prds/PRD-NNN-<slug>.md`
+   you keep the folder convention, drop PRDs into `docs/prds/PRD-NNN-<slug>.md`
    and stories into `docs/stories/USR-NNN-<slug>.md`.
 
 **✓ CHECK:** inside a Claude session, type `/pm-` and the pm-skills commands
@@ -179,7 +179,7 @@ feature triage. The rest are situational (see the bonus table in WORKFLOW.md).
 
 ---
 
-## Step 8 — Final verification (5-minute test run)
+## Step 8, Final verification (5-minute test run)
 
 Test the whole chain with a throwaway project:
 
@@ -203,12 +203,12 @@ claude
 
 Inside Claude, verify each piece:
 
-1. Type `/` — you should see `setup-project`, `commit-push`, and `dev-handoff` (your workflow commands)
-2. Type `/pm-` — you should see the pm-skills commands (`pm-execution:create-prd`, `pm-execution:user-stories`, …)
-3. Ask: *"What does my global CLAUDE.md say about git discipline?"* — Claude should quote your rules (proves global file loads)
-4. Run `/setup-project` — Claude should interview you about your stack (or offer a preset) and fill in CLAUDE.md (proves onboarding works). On a fresh scaffold, CLAUDE.md starts with `[...]` placeholders until you do this.
-5. Ask: *"List the subagents available in this project"* — should mention code-reviewer and architecture-reviewer (PM critique now lives in pm-skills, not a subagent)
-6. Press `Shift+Tab` twice — bottom of screen should show plan mode is on
+1. Type `/`, you should see `setup-project`, `commit-push`, and `dev-handoff` (your workflow commands)
+2. Type `/pm-`, you should see the pm-skills commands (`pm-execution:create-prd`, `pm-execution:user-stories`, …)
+3. Ask: *"What does my global CLAUDE.md say about git discipline?"*, Claude should quote your rules (proves global file loads)
+4. Run `/setup-project`, Claude should interview you about your stack (or offer a preset) and fill in CLAUDE.md (proves onboarding works). On a fresh scaffold, CLAUDE.md starts with `[...]` placeholders until you do this.
+5. Ask: *"List the subagents available in this project"*, should mention code-reviewer and architecture-reviewer (PM critique now lives in pm-skills, not a subagent)
+6. Press `Shift+Tab` twice, bottom of screen should show plan mode is on
 
 If all 6 pass: **your setup is complete.**
 
@@ -221,7 +221,7 @@ gh repo delete test-setup --yes
 
 ---
 
-## Where everything lives — final map
+## Where everything lives, final map
 
 ```
 ~ (your home folder)
@@ -239,7 +239,7 @@ gh repo delete test-setup --yes
 ```
 
 Everything under `~/.claude*` and `~/bin` is installed by `install.sh` from the
-cloned repo — re-run it (or use `--link`) after a `git pull` to update.
+cloned repo, re-run it (or use `--link`) after a `git pull` to update.
 
 Per project (created by init-project.sh):
 ```
@@ -271,5 +271,5 @@ claude
 ```
 
 Then open WORKFLOW.md and follow the daily operating manual. If you're new to
-coding, read BEGINNERS-GUIDE.md first — it explains the concepts behind the
+coding, read BEGINNERS-GUIDE.md first, it explains the concepts behind the
 workflow in plain language.

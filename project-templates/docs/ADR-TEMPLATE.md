@@ -1,4 +1,4 @@
-# [ADR-NNN] — [TITLE]
+# [ADR-NNN], [TITLE]
 
 **Status:** Proposed | Accepted | Superseded by ADR-NNN | Deprecated
 **Date:** [YYYY-MM-DD]
@@ -30,17 +30,17 @@ _Why this decision over alternatives?_
 
 ### Options considered
 
-1. **Option A — [name]**
+1. **Option A, [name]**
    - **Pros:** _..._
    - **Cons:** _..._
    - **Why not chosen:** _..._
 
-2. **Option B — [name]**
+2. **Option B, [name]**
    - **Pros:** _..._
    - **Cons:** _..._
    - **Why not chosen:** _..._
 
-3. **Option C (chosen) — [name]**
+3. **Option C (chosen), [name]**
    - **Pros:** _..._
    - **Cons:** _..._
    - **Why chosen:** _..._
@@ -56,7 +56,7 @@ _What gets easier or better as a result of this decision?_
 _What gets harder or what costs do we now carry? Don't sugarcoat._
 
 ### Neutral
-_What changes that's neither good nor bad — just different?_
+_What changes that's neither good nor bad, just different?_
 
 ---
 
@@ -75,4 +75,4 @@ _How will we know this decision was right (or wrong)? What signals to watch for?
 ---
 
 ## Changelog
-- **[YYYY-MM-DD]** — Decision recorded
+- **[YYYY-MM-DD]**, Decision recorded

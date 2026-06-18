@@ -1,22 +1,22 @@
-# WORKFLOW.md — Daily Operating Manual
+# WORKFLOW.md, Daily Operating Manual
 
 How you work with Claude from idea to shipped feature.
 Keep this open until the rhythm becomes muscle memory (~2-3 weeks).
 
 > New to coding, or a concept here doesn't make sense? Read
-> **`BEGINNERS-GUIDE.md`** first — it explains the ideas behind these commands
+> **`BEGINNERS-GUIDE.md`** first, it explains the ideas behind these commands
 > (the two hats, the two modes, what a branch is, who triggers what) in plain
 > language. This file is the *what to type*; that file is the *why*.
 
 The workflow (the phases, the discipline, the rhythm) is yours and stays fixed.
 The PM thinking inside Phase 1 is now powered entirely by the **pm-skills**
-plugins — you don't use any custom PM commands or subagents for that work.
+plugins, you don't use any custom PM commands or subagents for that work.
 
 ---
 
 ## Returning to Work (day 2 and beyond)
 
-Your setup is installed once and stays — global `CLAUDE.md`, templates,
+Your setup is installed once and stays, global `CLAUDE.md`, templates,
 `init-project.sh`, and the pm-skills plugins are all permanent. You do NOT
 reinstall any of that to start working again. You just open a project.
 
@@ -32,7 +32,7 @@ Then, **first thing inside Claude**, configure the project for your stack:
 ```
 /setup-project
 ```
-Claude interviews you (stack, commands, conventions) and fills in `CLAUDE.md` —
+Claude interviews you (stack, commands, conventions) and fills in `CLAUDE.md`, 
 or you start from a preset in `~/.claude-templates/presets/`. Once per project.
 Then begin Phase 1 (brainstorm → PRD → critique → stories) below.
 
@@ -88,34 +88,34 @@ IDEA (fresh or imported)
 ```
 
 **You drive every step manually.** Claude does NOT move to the next step on its
-own — you decide when an output is good enough and when you advance. Each
+own, you decide when an output is good enough and when you advance. Each
 `/skill` and each subagent is invoked explicitly by you. The only place Claude
 loops on its own is implementation (Phase 2.2), and even that starts when you
 say go.
 
 One Claude session carries through all phases. VS Code sits beside the terminal
-as your editor — it's a window, not a destination.
+as your editor, it's a window, not a destination.
 
 ---
 
 ## IMPORTING EXTERNAL CONTENT (before Phase 1)
 
 Already have a PRD, research, feature requests, or notes from elsewhere?
-Don't start from zero — bring it in and continue from where you are.
+Don't start from zero, bring it in and continue from where you are.
 
 ### An external PRD or document
 
-**Option A — paste it directly:**
+**Option A, paste it directly:**
 > "Here is my existing PRD: [paste text]. Evaluate it and tell me what's missing."
 
-**Option B — the file is already local:**
+**Option B, the file is already local:**
 > "Read docs/prds/PRD-001-name.md and evaluate it."
 
-**Option C — Notion / Google Docs / any tool:**
-Copy the content → paste into Claude. There's no direct integration — copy/paste
+**Option C, Notion / Google Docs / any tool:**
+Copy the content → paste into Claude. There's no direct integration, copy/paste
 is enough.
 
-After importing, continue normally — usually jump to step **1.3 (critique)** or
+After importing, continue normally, usually jump to step **1.3 (critique)** or
 **1.4 (user stories)**, skipping the steps you already did outside.
 
 ### External feature requests or user feedback
@@ -123,7 +123,7 @@ After importing, continue normally — usually jump to step **1.3 (critique)** o
 ```
 /pm-product-discovery:analyze-feature-requests
 ```
-Paste the list — Claude triages, groups, and prioritizes them.
+Paste the list, Claude triages, groups, and prioritizes them.
 
 ### External interview notes or research
 
@@ -137,10 +137,10 @@ or
 
 ---
 
-## PHASE 1: PM — From Idea to Stories
+## PHASE 1: PM, From Idea to Stories
 
 All PM content here is produced by pm-skills. You keep the `docs/` folder
-structure as the home for the output — when a skill produces a PRD or stories,
+structure as the home for the output, when a skill produces a PRD or stories,
 save them into `docs/prds/PRD-NNN-<slug>.md` and `docs/stories/USR-NNN-<slug>.md`
 so the rest of the workflow (handoff, branching, reviews) still lines up.
 
@@ -169,9 +169,9 @@ When the idea has shape:
 ```
 
 Walk through, in this order:
-1. **The problem** — who hurts, how much, why now
-2. **The outcome** — measurable success criteria
-3. **Hypotheses** — what you're assuming and how you'd know you're wrong
+1. **The problem**, who hurts, how much, why now
+2. **The outcome**, measurable success criteria
+3. **Hypotheses**, what you're assuming and how you'd know you're wrong
 
 ⚠️ Don't fill in solutions before the problem is solid. If you catch yourself
 jumping to features, that's the signal to slow down.
@@ -192,7 +192,7 @@ Then:
 /pm-execution:pre-mortem
 ```
 
-"It's 6 months later and this failed — why?" Top 3 failure modes ranked by
+"It's 6 months later and this failed, why?" Top 3 failure modes ranked by
 likelihood, with the leading signal you'd see for each.
 
 **Security pre-mortem (required for sensitive features).** If the feature
@@ -206,7 +206,7 @@ users would consider private, extend the pre-mortem with a security lens:
 
 Capture the answers in the PRD (they become requirements and acceptance
 criteria, not afterthoughts). This is where architecture-level security is
-decided — code review later can't fix a design that stores or exposes the wrong
+decided, code review later can't fix a design that stores or exposes the wrong
 thing.
 
 Revise the PRD based on the findings. Re-run if the changes were large.
@@ -217,13 +217,13 @@ Revise the PRD based on the findings. Re-run if the changes were large.
 /pm-execution:user-stories
 ```
 
-> "Order them by dependency — what must be built first. Save them into
+> "Order them by dependency, what must be built first. Save them into
 > docs/stories/ as USR-NNN-<slug>.md."
 
 Review what comes out. Good stories are:
-- **Small** — one story = 0.5 to 2 days of work. Bigger → split it.
-- **Independent** where possible — minimal blocking between stories
-- **Testable** — acceptance criteria you can verify objectively
+- **Small**, one story = 0.5 to 2 days of work. Bigger → split it.
+- **Independent** where possible, minimal blocking between stories
+- **Testable**, acceptance criteria you can verify objectively
 
 #### What a good story looks like
 
@@ -241,15 +241,15 @@ So that I can regain access without contacting support
 - [ ] User is logged in automatically after successful reset
 ```
 
-Notice: every criterion is **observable and binary** — it either works or it
+Notice: every criterion is **observable and binary**, it either works or it
 doesn't. "User-friendly flow" is NOT an acceptance criterion. "Error message
 appears within the form, not as an alert" IS.
 
 **For UI stories**, fold the design expectations into the same acceptance
-criteria — the **user flow**, the **screens** touched, and **which states** apply
+criteria, the **user flow**, the **screens** touched, and **which states** apply
 (loading / empty / error / no-results, plus focus/disabled where relevant). Keep
 them behavioral and token-independent ("shows an empty state with an invite
-action"), not visual ("uses blue") — the look comes from tokens at build time.
+action"), not visual ("uses blue"), the look comes from tokens at build time.
 These ride in the normal AC list; you don't tag them as "design" vs "functional."
 
 ### 1.5 Commit the PM work
@@ -280,7 +280,7 @@ on a `docs/` branch if you're on main).
 | Release notes | `/pm-execution:release-notes` |
 | Retrospective | `/pm-execution:retro` |
 
-Browse the full list with `/` — every pm-skills plugin namespaces its commands
+Browse the full list with `/`, every pm-skills plugin namespaces its commands
 (e.g. `pm-execution:`, `pm-market-research:`).
 
 ---
@@ -295,7 +295,7 @@ question:
 > Yes → use stories. No → skip them.
 
 **Key point: `todo.md` is used in BOTH cases.** It's the execution layer and it
-never goes away — it always holds the implementation plan for whatever you're
+never goes away, it always holds the implementation plan for whatever you're
 building right now. A story is just an optional spec *above* todo.md, never a
 replacement for it.
 
@@ -310,11 +310,11 @@ replacement for it.
 |---|---|
 | **New product / concept from scratch** (greenfield) | Brainstorm → (strategy/vision) → **PRD scoped to a thin MVP slice** → critique → **stories, ordered by dependency** → build story-by-story |
 | **Incremental feature** on an existing product | PRD (light) → **todo.md** → build (skip stories) |
-| **Trivial fix** | **todo.md** only — fast lane (skip PRD + stories) |
+| **Trivial fix** | **todo.md** only, fast lane (skip PRD + stories) |
 
 ### Greenfield: why stories matter most here
 
-Building from scratch is the scenario where stories help **most**, not least — a
+Building from scratch is the scenario where stories help **most**, not least, a
 new product is one vision that splits into many independent pieces (data model,
 auth, core flow, settings, polish…). Stories keep that sprawling build into
 small, separately reviewable steps.
@@ -338,7 +338,7 @@ Each merged PR is one visible step toward the MVP.
 
 ### Fast lane (trivial changes)
 
-For a typo, a copy tweak, a one-line fix — skip the PRD and stories entirely:
+For a typo, a copy tweak, a one-line fix, skip the PRD and stories entirely:
 
 ```
 git checkout -b fix/<short-description>
@@ -355,7 +355,7 @@ into one branch.** One story = one branch = one PR.
 
 ### Set up the design system (once, before building UI)
 
-If this project has UI and you haven't done it yet, run — **after** the PM phase
+If this project has UI and you haven't done it yet, run, **after** the PM phase
 (so it's informed by the PRD/personas/strategy), **before** building UI:
 
 ```
@@ -376,7 +376,7 @@ When stories are ready and you're switching to building:
 ```
 
 > ⚠️ **Run `/dev-handoff` in normal mode, not plan mode.** It creates the branch
-> and writes `todo.md` — actions that plan mode (read-only) would block. Enter
+> and writes `todo.md`, actions that plan mode (read-only) would block. Enter
 > plan mode (`Shift+Tab` twice) only *after* it finishes, for step 2.1. Order:
 > **dev-handoff (do) → plan mode (think) → exit plan mode (build).**
 
@@ -386,11 +386,11 @@ This will:
 3. Write a handoff summary into `.claude/tasks/todo.md` (so context survives
    even if you start a fresh session later)
 4. Create the feature branch from up-to-date main
-5. Open VS Code (as editor — your Claude session stays in this terminal)
+5. Open VS Code (as editor, your Claude session stays in this terminal)
 
 ---
 
-## PHASE 2: DEVELOPMENT — One Story at a Time
+## PHASE 2: DEVELOPMENT, One Story at a Time
 
 ### The iron rule
 **One story = one branch = one PR.** Never batch multiple stories into one
@@ -414,8 +414,8 @@ Switch out of plan mode (Shift+Tab) and let Claude work.
 With `CLAUDE_CODE_AUTO_VERIFY=1` set, Claude automatically loops:
 generate → lint → typecheck → test → self-correct → repeat until green.
 
-**TDD-lite (automatic):** for logic with clear rules — backend, API, services,
-validation, calculations, bug fixes — the `test-driven-development` skill engages
+**TDD-lite (automatic):** for logic with clear rules, backend, API, services,
+validation, calculations, bug fixes, the `test-driven-development` skill engages
 on its own: it turns each acceptance criterion into a failing test *before* the
 implementation, then drives it green (RED → GREEN → REFACTOR). You don't invoke
 it. For UI/component layout, visual exploration, prototypes, and trivial fixes it
@@ -436,7 +436,7 @@ When Claude says the story is implemented:
 > "Walk through every acceptance criterion in the story one by one.
 > For each: demonstrate it passes, or mark it as failing."
 
-This is the moment the story format pays off — the criteria ARE the test plan.
+This is the moment the story format pays off, the criteria ARE the test plan.
 Anything failing → back to implementation.
 
 ### 2.4 Code review
@@ -453,7 +453,7 @@ Skipping the review or ignoring Criticals = removing your own safety net.
 
 > "Invoke the design-reviewer subagent on these changes."
 
-`code-reviewer` covers logic/security; `design-reviewer` covers UI only —
+`code-reviewer` covers logic/security; `design-reviewer` covers UI only, 
 usability heuristics, all states (loading/empty/error + hover/focus/disabled),
 accessibility, and design-token adherence (no hardcoded styles). Same Critical →
 Important → Nitpicks rule. Skip it for backend-only changes.
@@ -467,7 +467,7 @@ data access**, run the built-in security review before committing:
 /security-review
 ```
 
-This is a dedicated vulnerability hunt over the pending changes — deeper on
+This is a dedicated vulnerability hunt over the pending changes, deeper on
 security than code-reviewer's general sweep (injection, authz gaps, secrets
 exposure, unsafe handling). Treat its findings like code-review Criticals: fix
 before commit.
@@ -476,7 +476,7 @@ Also, if this story **added or updated dependencies**: run `pnpm audit` (or your
 package manager's equivalent) and resolve criticals/highs before shipping.
 
 For ordinary changes (UI layout, copy, internal refactors with no input/data
-surface), skipping this step is fine — code-reviewer still covers the basics.
+surface), skipping this step is fine, code-reviewer still covers the basics.
 
 ### 2.5 Commit and push
 
@@ -502,11 +502,11 @@ Future-you (and future teammates) will thank you for the WHY being written down.
 
 ---
 
-## PHASE 3: CLOSE — Per Story
+## PHASE 3: CLOSE, Per Story
 
 ### Definition of Done (every story)
 
-pm-skills stories carry their own acceptance criteria but not a DoD checklist —
+pm-skills stories carry their own acceptance criteria but not a DoD checklist, 
 this is yours, the same gate for every story before it's "done":
 
 - [ ] Code merged to main via PR
@@ -515,9 +515,9 @@ this is yours, the same gate for every story before it's "done":
 - [ ] No new linter or typecheck errors
 - [ ] Acceptance criteria all met
 - [ ] Reviewed by the `code-reviewer` subagent (or a human reviewer)
-- [ ] `/security-review` passed — required if the change touches auth, input,
+- [ ] `/security-review` passed, required if the change touches auth, input,
       uploads, payments, or data access
-- [ ] No new `pnpm audit` criticals/highs — required if dependencies changed
+- [ ] No new `pnpm audit` criticals/highs, required if dependencies changed
 - [ ] No PII or secrets in logs, commits, or error messages introduced by this story
 
 ### 3.1 Pull Request
@@ -564,21 +564,21 @@ Before you close a working session, run:
 ```
 
 It looks back over the session, proposes the lessons worth keeping, and routes
-each (with your approval) — project-specific → `.claude/tasks/lessons.md`; a rule
+each (with your approval), project-specific → `.claude/tasks/lessons.md`; a rule
 that applies to all your work → a proposed global CLAUDE.md update.
 
-> ⚠️ `/retro` is something **you invoke** when wrapping up — Claude can't detect
+> ⚠️ `/retro` is something **you invoke** when wrapping up, Claude can't detect
 > that you're ending a session, so nothing fires it automatically.
 
 This turns the learning files from "filled only on correction" into "reviewed
 every session." Over weeks, `lessons.md` and your CLAUDE.md files quietly become
-a record of how *you* like to work — and Claude stops repeating the same misses.
+a record of how *you* like to work, and Claude stops repeating the same misses.
 
 ### Then: next story. Back to 2.1.
 
 ---
 
-## Working With Claude — Rules of Thumb
+## Working With Claude, Rules of Thumb
 
 ### Trust but verify
 Claude is a very talented junior who always sounds confident. Your job is the
@@ -601,11 +601,11 @@ senior's job: "How do you know it works?" / "Did you actually run it?"
 ### Session management
 - One session per day per project is normal
 - If context gets long and Claude gets "forgetful": `/compact` (compresses
-  history) or start fresh — `todo.md` carries the active task state across
+  history) or start fresh, `todo.md` carries the active task state across
   sessions, that's exactly why it exists
 - Resume a previous session anytime: `claude --continue` (last session) or
   `claude --resume` (pick from list)
-- Works identically in native terminal and VS Code terminal — they have the
+- Works identically in native terminal and VS Code terminal, they have the
   same rights; permissions belong to your user account, not the terminal window
 
 ### Skill & subagent invocation (your current level)
